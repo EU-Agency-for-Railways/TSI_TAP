@@ -1,0 +1,1404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.era.europa.eu/schemes/TAPTSI/1.2" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:doc="http://www.era.europa.eu/schemes/Documentation" xmlns:taf="http://www.era.europa.eu/schemes/TAFTSI/5.3" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.era.europa.eu/schemes/TAPTSI/1.2" elementFormDefault="unqualified" version="1.2">
+	<xs:annotation>
+		<xs:appinfo>
+			<dcterms:title>TAP TSI - ELECTRONIC RESERVATION OF ASSISTANCE FOR PERSONS WITH REDUCED MOBILITY - EXCHANGE OF MESSAGES.</dcterms:title>
+			<dcterms:description>This schema defines messages for the exchange of electronic reservation for PRM's.</dcterms:description>
+			<dcterms:creator>TAP TSI Editor Stefan Jugelt, European Railway Agency. mailto:stefan.jugelt@era.europa.eu</dcterms:creator>
+			<dcterms:coverage>European Union</dcterms:coverage>
+			<dcterms:created>2011-05-05</dcterms:created>
+			<dcterms:changed>2013-07-03</dcterms:changed>
+			<dcterms:references>ERA/TD/2010-01/INT</dcterms:references>
+			<dcterms:type>text/xml</dcterms:type>
+			<dcterms:subject>Transport, Public Transport, Rail</dcterms:subject>
+			<dcterms:identifier>{http://www.era.europa.eu/schemes/TAPTSI}TAP_TSI_B.10.xsd</dcterms:identifier>
+			<dcterms:language>en</dcterms:language>
+			<dcterms:publisher>ERA European Railway Agency, 120 rue Marc Lefrancq, 59307 Valenciennes Cedex, http://www.era.europa.eu/</dcterms:publisher>
+			<dcterms:rights>Unclassified</dcterms:rights>
+			<dcterms:rightsHolder>European Railway Agency</dcterms:rightsHolder>
+			<dcterms:copyright>ERA 2013</dcterms:copyright>
+			<dcterms:source>Derived from the UIC leaflet 918-6</dcterms:source>
+			<dcterms:status>Version 1.2</dcterms:status>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:element name="AvailabilityRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Requestor" type="RequestorType"/>
+				<xs:element name="Dialogue" type="DialogType"/>
+				<xs:element name="PrmCustomer" type="PrmCustomerType" maxOccurs="unbounded"/>
+				<xs:choice maxOccurs="20">
+					<xs:element name="Facility">
+						<xs:complexType>
+							<xs:choice>
+								<xs:element name="Station" type="StationCodeType"/>
+								<xs:element name="Train" type="TrainStopType"/>
+							</xs:choice>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="StationAssistance" type="StationAssistanceType" minOccurs="0"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AvailabilityReply">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Requestor" type="RequestorType"/>
+				<xs:element name="Dialogue" type="DialogType"/>
+				<xs:choice maxOccurs="20">
+					<xs:element name="Facility">
+						<xs:complexType>
+							<xs:choice>
+								<xs:element name="StationDescription" type="PrmStationDescrType"/>
+								<xs:element name="TrainDescription" type="PrmTrainDescrType"/>
+							</xs:choice>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="FailureReply" type="FailureReplyType"/>
+					<xs:element name="StationAssistance" type="StationAssistanceType"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BookingRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Requestor" type="RequestorType"/>
+				<xs:element name="Dialogue" type="DialogType"/>
+				<xs:element name="PrmCustomer" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="PrmCustomerType"/>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="GroupId" type="ExternalBookingReferenceType" minOccurs="0"/>
+				<xs:element name="ExternalBookingReference" type="ExternalBookingReferenceType" minOccurs="0" maxOccurs="3"/>
+				<xs:element name="StationAssistance" minOccurs="0" maxOccurs="10">
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="StationAssistanceType">
+								<xs:sequence>
+									<xs:element name="BookingReplyId" type="BookingRequestId"/>
+								</xs:sequence>
+								<xs:attribute name="MeetingPoint" type="MeetingPointTypeCodeList" use="optional"/>
+								<xs:attribute name="MeetingTime" type="xs:dateTime" use="optional"/>
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BookingReply">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Requestor" type="RequestorType"/>
+				<xs:element name="Dialogue" type="DialogType"/>
+				<xs:element name="ExternalBookingReference" type="ExternalBookingReferenceType" minOccurs="0" maxOccurs="3"/>
+				<xs:choice maxOccurs="20">
+					<xs:element name="StationAssistance">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="StationAssistanceType">
+									<xs:sequence>
+										<xs:element name="BookingReplyId" type="BookingRequestId"/>
+									</xs:sequence>
+									<xs:attribute name="MeetingPoint" type="MeetingPointTypeCodeList" use="optional"/>
+									<xs:attribute name="MeetingTime" type="xs:dateTime" use="optional"/>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="ConfirmReceived" type="ConfirmMessageReceivedType"/>
+					<xs:element name="FailureReply" type="FailureReplyType"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BookingStatusRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Requestor" type="RequestorType"/>
+				<xs:element name="Dialogue" type="DialogType"/>
+				<xs:element name="BookingRequestId" type="BookingRequestId"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BookingStatusReply">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Requestor" type="RequestorType"/>
+				<xs:element name="Dialogue" type="DialogType"/>
+				<xs:element name="PrmCustomer" type="PrmCustomerType"/>
+				<xs:choice maxOccurs="20">
+					<xs:element name="StationAssistance" type="StationAssistanceType"/>
+					<xs:element name="BookingReplyId" type="BookingRequestId"/>
+					<xs:element name="FailureReply" type="FailureReplyType"/>
+					<xs:element name="NotJetConfirmed" type="xs:boolean"/>
+					<xs:element name="Confirmed" type="xs:boolean"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CancelRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Requestor" type="RequestorType"/>
+				<xs:element name="Dialogue" type="DialogType"/>
+				<xs:element name="BookingRequestId" type="BookingRequestId"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CancelReply">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Requestor" type="RequestorType"/>
+				<xs:element name="Dialogue" type="DialogType"/>
+				<xs:choice>
+					<xs:element name="Confirmation" type="ConfirmMessageReceivedType"/>
+					<xs:element name="FailureReply" type="FailureReplyType"/>
+				</xs:choice>
+				<xs:element name="BookingRequestId" type="BookingRequestId"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SynchroRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Requestor" type="RequestorType"/>
+				<xs:element name="Dialogue" type="DialogType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SynchroReply">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Requestor" type="RequestorType"/>
+				<xs:element name="Dialogue" type="DialogType"/>
+				<xs:choice>
+					<xs:element name="BookingId" type="BookingRequestId"/>
+					<xs:element name="FailureReply" type="FailureReplyType"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--                   +++++++++++                            -->
+	<!--                   type defintions                             -->
+	<!--                   +++++++++++                            -->
+	<!--                   attribute                                    -->
+	<xs:attribute name="LocationSubsidiaryTypeCode">
+		<xs:annotation>
+			<xs:documentation>
+	New codes added:
+42	DIUM stations - Places of acceptance/delivery	Station open into international traffic of goods (tariff point included in DIUM) – consignment acceptance/delivery station (loading points are excluded and covered by TypeCode 37).
+43	Passengers cars public loading	Is a type of physical location on the open access network where passengers can put their car on a carrying train
+44	Passengers cars private loading	Is a type of physical location outside the open access network where passengers can put their car on a carrying train
+45	Sewage dump	Place for cleaning purposes - disposal of the waste
+46	Refuelling Point	Location where refuelling takes place
+47	Mains Supply	Location where energy supply can be provided for the rolling stock e.g. preheating
+48	Water Supply	Location where water supply can be provided for the rolling stock
+49	Compressed plant 	Train on a track with motion stabled with external air supply for braking systems
+50	Indoor cleaning platform	Cleaning point -interior
+51	Car-wash plant	Cleaning point -outdoor
+52	Short dry-cleaning track	Cleaning point
+53	Pollution protective plate	Track where floor that avoids pollution of the earth below
+54	Sand-filling station	Location where sand is filled
+55	Repair track	Location where a train/wagon/engine can be repaired
+56	Signal box	The location of a building containing signalling equipment
+	
+	</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:token">
+				<xs:enumeration value="0">
+					<xs:annotation>
+						<xs:documentation>Not Defined</xs:documentation>
+						<xs:documentation>not used</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="1">
+					<xs:annotation>
+						<xs:documentation>Track</xs:documentation>
+						<xs:documentation>The track is a uniquely defined part of location</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="2">
+					<xs:annotation>
+						<xs:documentation>Private Siding</xs:documentation>
+						<xs:documentation>Tracks are not for open access</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="3">
+					<xs:annotation>
+						<xs:documentation>Border Point Code</xs:documentation>
+						<xs:documentation>Special code for the Border Points are allocated at the country border and the points between different IM networks. Location of these points sometimes are not geographically same with the station or yard. Therefore these points are "logical point"</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="4">
+					<xs:annotation>
+						<xs:documentation>Sorting Code</xs:documentation>
+						<xs:documentation>Destination station of the wagon has a code in order to provide shunting technology.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="5">
+					<xs:annotation>
+						<xs:documentation>Vehicle Parking Points</xs:documentation>
+						<xs:documentation>All points (tracks)</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="6">
+					<xs:annotation>
+						<xs:documentation>Public Loading Places</xs:documentation>
+						<xs:documentation>Is a type of physical location on the open access network where consignor or consignee can load or unload wagons</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="7">
+					<xs:annotation>
+						<xs:documentation>Private Loading Places</xs:documentation>
+						<xs:documentation>Is a type of physical location outside the open access network where consignor or consignee can load or unload wagons</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="8">
+					<xs:annotation>
+						<xs:documentation>IM Path Tariff Point</xs:documentation>
+						<xs:documentation>Price Segment change between two IM Networks.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="9">
+					<xs:annotation>
+						<xs:documentation>Depot / Maintenance workshop.
+	Place for overhaul or maintenance of the rolling stock.						
+						</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="10">
+					<xs:annotation>
+						<xs:documentation>Switch/turnout</xs:documentation>
+						<xs:documentation>The location where two tracks meet or diverge.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="11">
+					<xs:annotation>
+						<xs:documentation>Grade Crossing</xs:documentation>
+						<xs:documentation>The location where two tracks on the same level cross each other.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="12">
+					<xs:annotation>
+						<xs:documentation>Section of the track</xs:documentation>
+						<xs:documentation>Section is inside of the location considered part of a track.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="13">
+					<xs:annotation>
+						<xs:documentation>Twin track point</xs:documentation>
+						<xs:documentation>The spot where is end or start of the twinned track section.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="14">
+					<xs:annotation>
+						<xs:documentation>Retarder (rail brake)</xs:documentation>
+						<xs:documentation>Trackside equipment to control the speed of the wagons running from the shunting hump.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="15">
+					<xs:annotation>
+						<xs:documentation>Platform</xs:documentation>
+						<xs:documentation>The area next to the track which has been raised to make access to railway vehicles easier.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="16">
+					<xs:annotation>
+						<xs:documentation>Railing</xs:documentation>
+						<xs:documentation>barrier Safety equipment used to prevent access to the track by people and animals.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="17">
+					<xs:annotation>
+						<xs:documentation>Movable scotch block</xs:documentation>
+						<xs:documentation>Safety equipment across the track avoiding any unnecessary moving beyond that point.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="18">
+					<xs:annotation>
+						<xs:documentation>Derailing stop / Trap points / Catch points</xs:documentation>
+						<xs:documentation>Safety equipment is on one rail avoiding any unnecessary moving beyond that point.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="19">
+					<xs:annotation>
+						<xs:documentation>Loading equipment</xs:documentation>
+						<xs:documentation>Special equipment to facilitate the loading and unloading on the Public Loading Places.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="20">
+					<xs:annotation>
+						<xs:documentation>Weighbridge</xs:documentation>
+						<xs:documentation>Special equipment is to facilitate the measure of the weight of the wagon.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="21">
+					<xs:annotation>
+						<xs:documentation>Building</xs:documentation>
+						<xs:documentation>Those buildings where IM placed his staff for direct communication with RU staff or the IM buildings serve RU activities as well.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="22">
+					<xs:annotation>
+						<xs:documentation>Level crossing</xs:documentation>
+						<xs:documentation>Place where rail and road crossing in level. on the same level (grade)</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="23">
+					<xs:annotation>
+						<xs:documentation>Bridge</xs:documentation>
+						<xs:documentation>Special built structure is over the road</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="24">
+					<xs:annotation>
+						<xs:documentation>Tunnel</xs:documentation>
+						<xs:documentation>Structure to to allow a railway line to pass under the surface.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="25">
+					<xs:annotation>
+						<xs:documentation>Underpass</xs:documentation>
+						<xs:documentation>Undercrossing or underground passage under the railway track. (Not used by trains)</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="26">
+					<xs:annotation>
+						<xs:documentation>Block section</xs:documentation>
+						<xs:documentation>Block section outside of the location with primary code. In other words: a section on the open track between stations defined by signalling system.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="27">
+					<xs:annotation>
+						<xs:documentation>Signal</xs:documentation>
+						<xs:documentation>A signal is a mechanical or electrical device erected beside a railway line to pass information relating to the state of the line ahead to train drivers/engineers.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="28">
+					<xs:annotation>
+						<xs:documentation>Sign and board</xs:documentation>
+						<xs:documentation>Equipment to inform the board staff for train traffic and shunting.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="29">
+					<xs:annotation>
+						<xs:documentation>Phase break</xs:documentation>
+						<xs:documentation>Border of the power supply systems (catenary).</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="30">
+					<xs:annotation>
+						<xs:documentation>Leap in kilometer</xs:documentation>
+						<xs:documentation>The section has deviation in length i. e. the section more or less than called.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="32">
+					<xs:annotation>
+						<xs:documentation>Balise</xs:documentation>
+						<xs:documentation>A balise is an electronic beacon or transponder placed between the rails of a railway as part of an Automatic Train Protection (ATP) system.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="33">
+					<xs:annotation>
+						<xs:documentation>Hot spot detector</xs:documentation>
+						<xs:documentation>Trackside equipment which detects hot wheels or axle-box on passing trains.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="34">
+					<xs:annotation>
+						<xs:documentation>Flat wheel detector</xs:documentation>
+						<xs:documentation>Trackside equipment which detects flat spots on wheels on passing trains.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="35">
+					<xs:annotation>
+						<xs:documentation>Dynamic wheel load</xs:documentation>
+						<xs:documentation>detector Special equipment is in trackside for inspect of the overloaded wagons.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="36">
+					<xs:annotation>
+						<xs:documentation>Freight yard</xs:documentation>
+						<xs:documentation>A freight yard is commercial usage of a physical location which can be used as a sending or a destination station in freight orders of rail freight transports. The freight yard can have his own codification</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="37">
+					<xs:annotation>
+						<xs:documentation>Loading point</xs:documentation>
+						<xs:documentation>A loading point is a commercial usage of a physical location. Each loading point is assigned to a yard.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="38">
+					<xs:annotation>
+						<xs:documentation>IM Network link</xs:documentation>
+						<xs:documentation>It allows to link two locations from different IM Networks</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="39">
+					<xs:annotation>
+						<xs:documentation>Reservation code</xs:documentation>
+						<xs:documentation/>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="40">
+					<xs:annotation>
+						<xs:documentation>Metastation</xs:documentation>
+						<xs:documentation>To mark a meta location that forms the link between different stations that are considered as equal (for the traveller)</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="41">
+					<xs:annotation>
+						<xs:documentation>CompanySpecificIdentifier</xs:documentation>
+						<xs:documentation>Company specific identifier of the primary location</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="42">
+					<xs:annotation>
+						<xs:documentation>
+				DIUM stations - Places of acceptance/delivery	Station open into international traffic of goods (tariff point included in DIUM) – consignment acceptance/delivery station (loading points are excluded and covered by TypeCode 37).
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="43">
+					<xs:annotation>
+						<xs:documentation>
+				Passengers cars public loading	Is a type of physical location on the open access network where passengers can put their car on a carrying train
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="44">
+					<xs:annotation>
+						<xs:documentation>
+				Passengers cars private loading	Is a type of physical location outside the open access network where passengers can put their car on a carrying train
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="45">
+					<xs:annotation>
+						<xs:documentation>
+				Sewage dump	Place for cleaning purposes - disposal of the waste
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="46">
+					<xs:annotation>
+						<xs:documentation>
+				Refuelling Point	Location where refuelling takes place
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="47">
+					<xs:annotation>
+						<xs:documentation>
+				Mains Supply	Location where energy supply can be provided for the rolling stock e.g. preheating
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="48">
+					<xs:annotation>
+						<xs:documentation>
+				Water Supply	Location where water supply can be provided for the rolling stock
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="49">
+					<xs:annotation>
+						<xs:documentation>
+				Compressed plant 	Train on a track with motion stabled with external air supply for braking systems
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="50">
+					<xs:annotation>
+						<xs:documentation>
+				Indoor cleaning platform	Cleaning point -interior
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="51">
+					<xs:annotation>
+						<xs:documentation>
+				Car-wash plant	Cleaning point -outdoor
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="52">
+					<xs:annotation>
+						<xs:documentation>
+				Short dry-cleaning track	Cleaning point
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="53">
+					<xs:annotation>
+						<xs:documentation>
+				Pollution protective plate	Track where floor that avoids pollution of the earth below
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="54">
+					<xs:annotation>
+						<xs:documentation>
+				Sand-filling station	Location where sand is filled
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="55">
+					<xs:annotation>
+						<xs:documentation>
+				Repair track	Location where a train/wagon/engine can be repaired
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="56">
+					<xs:annotation>
+						<xs:documentation>
+				Signal box	The location of a building containing signalling equipment
+				</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="90">
+					<xs:annotation>
+						<xs:documentation>Test Loc</xs:documentation>
+						<xs:documentation/>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="99">
+					<xs:annotation>
+						<xs:documentation>Relation to Station</xs:documentation>
+						<xs:documentation>An indicator used to show that this location is a subsidiary of another location.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+	<!--                   simple types                             -->
+	<xs:simpleType name="AssistanceBookingSystemType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">System to allocate PRM assistance for a set of stations</xs:documentation>
+			<xs:documentation doc:docType="Remark"> Is this number linked to a reservation system from B.5?</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="9999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AssistenceIdType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">unique identification of an assistance in a message, used to link fialure replies to assistance in multiple assistance requests</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BookingIdType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">idebntifies a booking within a system</xs:documentation>
+			<xs:documentation doc:docType="Remark"> What is the difference to the BookiingRequestId?</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BookingStatusType">
+		<xs:annotation>
+			<xs:documentation doc:docType="Remark"> No definition of data type found</xs:documentation>
+			<xs:documentation xml:lang="en">Booking status</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CompanyCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en"> Identifies the RU, IM or other company involved in the Rail Transport Chain  (i.e. 1088 for passenger SNCB). The code list is published by UIC.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="9999"/>
+			<xs:minInclusive value="0001"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContextType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">The context type defines context values to distinguish different coding lists defined for the same items. Numbers refere to the UIC leaflets.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TSI"/>
+			<xs:enumeration value="918"/>
+			<xs:enumeration value="920"/>
+			<xs:enumeration value="108"/>
+			<xs:enumeration value="UIC"/>
+			<xs:enumeration value="ISO"/>
+			<xs:enumeration value="301"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CountryCodeISO2AType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">ISO 3166-1 alpha code (2 positions)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="CountryCodeType">
+			<xs:length value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CountryCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">general country code type</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="2"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DialogIdType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">identification for a dialogue</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DisabilityDegreeType">
+		<xs:restriction base="xs:int"/>
+	</xs:simpleType>
+	<xs:simpleType name="DisabilityTypeCodeList">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Code list for the disability type (B.10.4)</xs:documentation>
+			<xs:appinfo>
+				<dc:title>Code list for the disability type</dc:title>
+				<dc:source>B.10.4</dc:source>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="99"/>
+			<xs:totalDigits value="2"/>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">walking disability</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">wheelchair bound person</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">wheelchair no bound person</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Learning disability</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">mentally disabled</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">hearing impaired</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="7">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Deaf</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="8">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Visually impaired</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="9">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Blind</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Other disability</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ExternalBookingReferenceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">type for bookings for PRM B.10</xs:documentation>
+			<xs:documentation doc:docType="Remark"> Typo error corrected ExternalBookingReferenceType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LanguageType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Language 2 digit ISO 639-1 code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="de"/>
+			<xs:enumeration value="en"/>
+			<xs:enumeration value="fr"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MeetingPointTypeCodeList">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Meeting point for PRM assistance booking (B.10.3)</xs:documentation>
+			<xs:appinfo>
+				<dc:title>Meeting point for PRM assistance</dc:title>
+				<dc:source>B.10.3</dc:source>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Taxi stand</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Service point /  “Meeting point”</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Sales office</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">At the platform </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">South entrance</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">North entrance</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="7">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Main entrance</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="8">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">East entrance</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="9">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">West entrance</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">At the platform near the mobile ramp</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">At the platform near the coach</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PRMAssistanceFacilitiesCodeList">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Code list for PRM Facilities for Assistance (B.10.2)</xs:documentation>
+			<xs:appinfo>
+				<dc:title>Code list for PRM Facilities for Assistance</dc:title>
+				<dc:source>B.10.2</dc:source>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:totalDigits value="2"/>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Non collapsible manual wheelchair weight up to 200 kg including the person</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Non collapsible manual wheelchair weight up to 250 kg including the person</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Non collapsible manual wheelchair weight up to 300 kg including the person</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Non collapsible manual wheelchair weight up to 350 kg including the person</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Non collapsible electrical wheelchair weight up to 200 kg including the person</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Non collapsible electrical wheelchair weight up to 250 kg including the person</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="7">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Non collapsible electrical wheelchair weight up to 300 kg including the person</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="8">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Non collapsible electrical wheelchair weight up to 350 kg including the person</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="9">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Collapsible wheelchair weight up to 200 kg including the person</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Collapsible wheelchair weight up to 250 kg including the person</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Collapsible wheelchair weight up to 300 kg including the person</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Collapsible wheelchair weight up to 350 kg including the person</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="13">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Walking frame</xs:documentation>
+					<xs:documentation xml:lang="de">Rollator</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="14">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Tricycle</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="15">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Other / Unspecified (weight and description have to be given in remarks)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="16">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Walking sticks</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="17">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">White cane</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="18">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">No equipment</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PRMOnBoardFacilitiesCodeList">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Code list for PRM onboard facilites (B.10.6)</xs:documentation>
+			<xs:appinfo>
+				<dc:title>Code list for PRM on board facilities</dc:title>
+				<dc:source>B.10.6</dc:source>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:totalDigits value="2"/>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Place for wheelchair</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Visual and acoustic signs for closing doors</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Visual signs in the coach</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">SOS button in toilet</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">SOS button near wheelchair seat</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Ground guidelines for blinds</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="7">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Low floor vehicle</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="8">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">PRM toilets</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="9">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Speakers</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Mobile ramp platform/coach</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Other</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PRMReplyCodeCodeList">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Code list for PRM reply codes (B.10.7)</xs:documentation>
+			<xs:appinfo>
+				<dc:title>Code list for PRM reservation reques reply codes</dc:title>
+				<dc:source>B.10.7</dc:source>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:totalDigits value="3"/>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Assistance available and confirmed</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">a. not possible at this station for the requested train</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">a. not possible due to minimum change time</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">a. not possible at this station at the required platform</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">a. not possible during the requested time</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">wheelchair too heavy</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="7">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">train data invalid</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="8">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">station not found</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="9">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">a. to be arranged manually only</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Too late for assistance booking</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PlatformSectionType">
+		<xs:restriction base="xs:token"/>
+	</xs:simpleType>
+	<xs:simpleType name="PlatformType">
+		<xs:restriction base="xs:token"/>
+	</xs:simpleType>
+	<xs:simpleType name="ServiceCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Leaflet 918 element 308 first two digit</xs:documentation>
+			<xs:documentation xml:lang="en">
+				A - 1st class seat
+				B - 2nd class seat
+				S - Single with shower and  WC
+				T - Double with shower and  WC
+				L - Single
+				M - Special
+				N - Double
+				P - T2
+				Q - T3
+				R - T4
+				C - Couchette 1st class
+				D - Couchette 2nd Class
+				D4 - Couchette 2nd Class four-berth
+				D6 - Couchette 2nd Class six-berth
+				E - Sleeperette 1st Class
+				F - Sleeperette 2nd Class
+				G - Premium 1st Class
+				H - Premium 2nd Class
+				K - Euraffaires
+				O - Vehicle parking place
+				O3 - Vehicle loading place category 1 - 3
+				O8 - Vehicle loading place category 6 - 8
+				SL - Single with shower and  WC and Double bed
+				TL - Double with shower and WC and Double bed 
+				U - T3 with shower and WC 
+				X - Club 
+				Y - Preferente 	
+				Z - Tourist
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="B"/>
+			<xs:enumeration value="S"/>
+			<xs:enumeration value="T"/>
+			<xs:enumeration value="L"/>
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="N"/>
+			<xs:enumeration value="P"/>
+			<xs:enumeration value="Q"/>
+			<xs:enumeration value="R"/>
+			<xs:enumeration value="C"/>
+			<xs:enumeration value="D"/>
+			<xs:enumeration value="D4"/>
+			<xs:enumeration value="D6"/>
+			<xs:enumeration value="E"/>
+			<xs:enumeration value="F"/>
+			<xs:enumeration value="G"/>
+			<xs:enumeration value="H"/>
+			<xs:enumeration value="K"/>
+			<xs:enumeration value="O"/>
+			<xs:enumeration value="O3"/>
+			<xs:enumeration value="O8"/>
+			<xs:enumeration value="SL"/>
+			<xs:enumeration value="TL"/>
+			<xs:enumeration value="U"/>
+			<xs:enumeration value="X"/>
+			<xs:enumeration value="Y"/>
+			<xs:enumeration value="Z"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StationFacilityType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Features provided at the station for PRMs</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int"/>
+	</xs:simpleType>
+	<xs:simpleType name="StationLocalCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">general local code for stations</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="99999"/>
+			<xs:minInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TrackType">
+		<xs:restriction base="xs:token"/>
+	</xs:simpleType>
+	<xs:simpleType name="TrainServiceIdType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Train Id used for customer information. corresponds to TrainServiceNumber for numerical codes, but allows for alphanumerical codes (i.e. used by RZD)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:whiteSpace value="collapse"/>
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WeightUnitType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="g"/>
+			<xs:enumeration value="kg"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--                   complex types                             -->
+	<xs:complexType name="AddressType">
+		<xs:annotation>
+			<xs:documentation doc:docType="History" doc:Person="" doc:date="">Moved from passengercomplextypes.xsd</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Country" type="CountryCodeISO2AType"/>
+			<xs:element name="City" type="xs:string"/>
+			<xs:element name="Street" type="xs:token"/>
+			<xs:element name="PostalCode" type="xs:token"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BookingRequestId">
+		<xs:annotation>
+			<xs:documentation source="identifies a Booking Request" xml:lang="en"/>
+		</xs:annotation>
+		<xs:attribute name="System" type="AssistanceBookingSystemType" use="required"/>
+		<xs:attribute name="BookingId" type="BookingIdType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ConfirmMessageReceivedType"/>
+	<xs:complexType name="CustomerType">
+		<xs:annotation>
+			<xs:documentation doc:docType="History" doc:Person="" doc:date="">Moved from passengercomplextypes.xsd</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FirstName" type="xs:token"/>
+			<xs:element name="LastName" type="xs:token"/>
+			<xs:element name="Title" type="xs:token" minOccurs="0"/>
+			<xs:element name="DateOfBirth" type="xs:date" minOccurs="0"/>
+			<xs:element name="Phone" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:token">
+							<xs:attribute name="Preferred" type="xs:boolean" use="optional" default="false"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MobilePhone" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:token">
+							<xs:attribute name="Preferred" type="xs:boolean" use="optional" default="false"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="E-mail" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:token">
+							<xs:attribute name="Preferred" type="xs:boolean" use="optional" default="false"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Language" type="LanguageType" minOccurs="0" maxOccurs="10"/>
+			<xs:element name="Comment" type="xs:string" minOccurs="0"/>
+			<xs:element name="Address" type="AddressType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DialogType">
+		<xs:annotation>
+			<xs:documentation source="identifies a dialog between the systems" xml:lang="en"/>
+		</xs:annotation>
+		<xs:attribute name="DialogId" type="DialogIdType"/>
+		<xs:attribute name="Date" type="xs:date" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="FailureReplyType">
+		<xs:sequence>
+			<xs:element name="AlternativeTrain" type="TrainServiceIdType" minOccurs="0" maxOccurs="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">alternative trains suggested if the request for the original train could not be fullfilled</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NearestStation" type="StationCodeType" minOccurs="0" maxOccurs="5"/>
+		</xs:sequence>
+		<xs:attribute name="AssistanceId" type="AssistenceIdType" use="optional"/>
+		<xs:attribute name="ReplyCode" type="PRMReplyCodeCodeList" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="HandicapCardType">
+		<xs:sequence>
+			<xs:element name="ValidFrom" type="xs:date"/>
+			<xs:element name="ValitUntil" type="xs:date"/>
+			<xs:element name="Capacity" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation doc:docType="Remark"> No data type. Probably Percentage of handicap see B.10 chapter 6.7</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LocationSubsidiaryType">
+		<xs:attribute ref="LocationSubsidiaryTypeCode"/>
+	</xs:complexType>
+	<xs:complexType name="PrmCustomerType">
+		<xs:complexContent>
+			<xs:extension base="CustomerType">
+				<xs:sequence>
+					<xs:element name="Tools" type="PRMAssistanceFacilitiesCodeList" minOccurs="0" maxOccurs="3"/>
+					<xs:element name="Disability" type="DisabilityTypeCodeList" maxOccurs="5"/>
+					<xs:element name="HandicapCard" type="HandicapCardType" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="DisabilityDegree" type="DisabilityDegreeType" use="optional"/>
+				<xs:attribute name="WheelChairChange" type="xs:boolean" use="optional"/>
+				<xs:attribute name="PriorityCard" type="xs:boolean" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PrmStationDescrType">
+		<xs:annotation>
+			<xs:documentation doc:docType="History" doc:Person="" doc:date="">Moved from passengercomplextypes.xsd</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Station" type="ServiceCodeType"/>
+			<xs:element name="ChangeTime" minOccurs="0" maxOccurs="4">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">minimal time required to change trains</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:nonNegativeInteger">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Facility" type="StationFacilityType" minOccurs="0" maxOccurs="20"/>
+			<xs:element name="Platform" minOccurs="0" maxOccurs="30">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Facility" type="StationFacilityType" minOccurs="0" maxOccurs="20"/>
+					</xs:sequence>
+					<xs:attribute name="PlatformNb" type="PlatformType" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="PrmAccessable" type="xs:boolean" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="PrmTrainDescrType">
+		<xs:annotation>
+			<xs:documentation doc:docType="History" doc:Person="" doc:date="">Moved from passengercomplextypes.xsd</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Departure" type="TrainStopType"/>
+			<xs:element name="Facility" type="PRMOnBoardFacilitiesCodeList" minOccurs="0" maxOccurs="20"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RequestorType">
+		<xs:annotation>
+			<xs:documentation source="identifies a requesting system" xml:lang="en"/>
+		</xs:annotation>
+		<xs:attribute name="System" type="AssistanceBookingSystemType" use="required"/>
+		<xs:attribute name="Company" type="CompanyCodeType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="StationAssistanceType">
+		<xs:annotation>
+			<xs:documentation doc:docType="History" doc:Person="" doc:date="">Moved from passengercomplextypes.xsd</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice maxOccurs="2">
+				<xs:element name="ArrivalTrain" type="TrainStopType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">plattform is optional and not given in requests. If given in the reply it has to be checked by the RU for corectness. </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="DepartureTrain" type="TrainStopType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">plattform is optional and not given in requests. If given in the reply it has to be checked by the RU for corectness. </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="RequiredTool" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="Type" type="PRMAssistanceFacilitiesCodeList" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AccompaningPerson" type="CustomerType" minOccurs="0"/>
+			<xs:element name="EmergencyContact" type="CustomerType" minOccurs="0"/>
+			<xs:element name="CustomerProvidedTool" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="Type" type="PRMAssistanceFacilitiesCodeList" use="optional"/>
+					<xs:attribute name="Weight" type="xs:int" use="optional"/>
+					<xs:attribute name="WeigtUnit" type="WeightUnitType" use="optional" default="kg"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Comment" type="xs:string" minOccurs="0"/>
+			<xs:element name="StationAddress" type="AddressType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Station address is givenb to provide an address to the customer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="BookingStatus" use="required">
+			<xs:simpleType>
+				<xs:restriction base="BookingStatusType"/>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="NbLuggage" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:int">
+					<xs:minInclusive value="0"/>
+					<xs:maxInclusive value="9"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="StationCodeType">
+		<xs:annotation>
+			<xs:documentation doc:docType="History" doc:Person="" doc:date="">Moved from passengercomplextypes.xsd</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="CountryCode" type="CountryCodeType"/>
+				<xs:element name="Country" type="CountryCodeType"/>
+			</xs:choice>
+			<xs:choice>
+				<xs:element name="LocationPrimaryCode" type="StationLocalCodeType"/>
+				<xs:element name="LocalCode" type="StationLocalCodeType"/>
+			</xs:choice>
+			<xs:element name="LocationSubsidiaryCode" type="LocationSubsidiaryType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="Context" type="ContextType" default="UIC"/>
+	</xs:complexType>
+	<xs:complexType name="TrainStopType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">identification of a train stop</xs:documentation>
+			<xs:documentation doc:docType="History" doc:Person="" doc:date="">moved from passengercomplextypes,xsd and extract codelist</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Station" type="StationCodeType"/>
+			<xs:element name="Train">
+				<xs:complexType>
+					<xs:attribute name="TrainNb" type="TrainServiceIdType" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Platform" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:attribute name="Platform" type="PlatformType" use="optional"/>
+					<xs:attribute name="Track" type="TrackType" use="optional"/>
+					<xs:attribute name="Section" type="PlatformSectionType" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="Time" type="xs:dateTime" use="required"/>
+	</xs:complexType>
+</xs:schema>

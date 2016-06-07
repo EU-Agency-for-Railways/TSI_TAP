@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (x64) (http://www.altova.com) by - - (European Railway Agency) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:doc="http://www.era.europa.eu/schemes/Documentation" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:annotation>
+		<xs:documentation xml:lang="en">Schema for ERA telematics specific documentation tags</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="docType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Used for distinction between the different types of comments</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Remark">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">This state is used for remarks on this item (e.g. questions fro mapping, remark column on code lists)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="History">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Item used for history entries</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Description">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">item used for description of an item (e.g. for code lists)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Status">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">used to code the status of the item (see code list B.4 code status)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:attributeGroup name="HistoryAttributes">
+		<xs:attribute name="docType" type="docType" use="required" fixed="History"/>
+		<xs:attribute name="date" type="xs:date" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">The date of the change</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Person" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">The person who made the change</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="RemarkAttributes">
+		<xs:attribute name="docType" type="docType" use="required" fixed="Remark"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="StatusAttributes">
+		<xs:attribute name="docType" type="docType" use="required" fixed="Status"/>
+	</xs:attributeGroup>
+</xs:schema>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 (x64) (http://www.altova.com) by - - (European Railway Agency (ERA)) -->
-<xs:schema xmlns="http://www.era.europa.eu/schemes/TAPTSI/1.3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:doc="http://www.era.europa.eu/schemes/Documentation" 
-xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" targetNamespace="http://www.era.europa.eu/schemes/TAPTSI/1.3" 
-elementFormDefault="unqualified" version="1.3.4">
+<xs:schema xmlns="http://www.era.europa.eu/schemes/TAPTSI/1.4" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:doc="http://www.era.europa.eu/schemes/Documentation" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" targetNamespace="http://www.era.europa.eu/schemes/TAPTSI/1.4" elementFormDefault="unqualified" version="1.4.0">
 	<!-- includes for the schema -->
 	<xs:include schemaLocation="TAP_TSI_Documentation.xsd"/>
 	<!--This schema covers the code lists for the TAP TSI-->
@@ -587,6 +585,7 @@ elementFormDefault="unqualified" version="1.3.4">
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9A-Z]{4}"/>
 			<xs:enumeration value="X001">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">HF</xs:documentation>
@@ -3975,7 +3974,7 @@ elementFormDefault="unqualified" version="1.3.4">
 					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">TGV</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="merits description">TGV Lyria</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="servicemode code">8</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">2</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="77">
@@ -4029,7 +4028,7 @@ elementFormDefault="unqualified" version="1.3.4">
 					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">regional train</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="merits description">Regional</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="servicemode code">11</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">2</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="85">
@@ -4335,7 +4334,7 @@ elementFormDefault="unqualified" version="1.3.4">
 					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">RENFE SNCF EN COOPERATION</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="merits description">RENFE SNCF</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="servicemode code">8</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">2</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="129">
@@ -4344,7 +4343,7 @@ elementFormDefault="unqualified" version="1.3.4">
 					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">RENFE SNCF EN COOPERATION</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="merits description">RENFE SNCF</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="servicemode code">8</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">2</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="130">
@@ -4605,7 +4604,7 @@ elementFormDefault="unqualified" version="1.3.4">
 					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">Railpromo Austria Express/Treski</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="merits description">Austria Express/Treski</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="servicemode code">13</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">2</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="216">
@@ -9926,6 +9925,11 @@ elementFormDefault="unqualified" version="1.3.4">
 					<xs:documentation xml:lang="en">place close to place with animal 2nd Class</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="BP">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">private compartment seats</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="BR">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Wheelchair seat 2nd Class</xs:documentation>
@@ -9949,6 +9953,11 @@ elementFormDefault="unqualified" version="1.3.4">
 			<xs:enumeration value="D">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Couchette 2nd Class</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DP">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Private compartment couchettes</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="DR">
@@ -9981,9 +9990,24 @@ elementFormDefault="unqualified" version="1.3.4">
 					<xs:documentation xml:lang="en">Sleeperette 1st Class</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="EX">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Excellence Class</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="F">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Sleeperette 2nd Class</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="F4">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Ladies compartment couchette 2nd Class 4-berth</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="F6">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Ladies compartment couchette 2nd Class 6-berth</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="G">
@@ -10079,6 +10103,16 @@ elementFormDefault="unqualified" version="1.3.4">
 			<xs:enumeration value="P">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">T2</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PD">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Private compartment berth deluxe</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PS">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Private compartment berth</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Q">
@@ -12465,6 +12499,41 @@ elementFormDefault="unqualified" version="1.3.4">
 					<xs:documentation xml:lang="en">Syntax error: general reply in the case of erroneous coding or erroneous construction of request.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="003">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Personal Data missing on the booking</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="004">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Provided Personal Data is incomplete or outdated (e.g. passport is expired at the travel date)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="005">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Number of passengers provided does not match requirements</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="006">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Message too long (in case of binary messages only) (e.g. in case the long element is sent to SNCF)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="007">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">No Security Features supported</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="008">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Exchange of passenger(s) not allowed</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="009">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Requesting system not known</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="010">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Reservation closed: the reservation equipment cannot be reached in the logic sense.</xs:documentation>
@@ -12615,6 +12684,11 @@ elementFormDefault="unqualified" version="1.3.4">
 					<xs:documentation xml:lang="en">Allocation possible; in addition to negative partial replies to a combined request.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="106">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Message too long for translation </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="110">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Reservation temporarily not possible; allocation from the requested offer temporarily not possible for operating or data-processing reasons.</xs:documentation>
@@ -12754,6 +12828,11 @@ elementFormDefault="unqualified" version="1.3.4">
 					<xs:documentation xml:lang="en">EPA-MAV</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="44">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">GYSEV</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="45">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">EPA-SBB</xs:documentation>
@@ -12792,6 +12871,11 @@ elementFormDefault="unqualified" version="1.3.4">
 			<xs:enumeration value="59">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">EXPRESS 3-KRG</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="62">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">EPA-ZPCG</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="65">
@@ -12897,6 +12981,26 @@ elementFormDefault="unqualified" version="1.3.4">
 			<xs:enumeration value="88">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">EPA-SNCB</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="89">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">OEBB-ARES</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="90">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">SZ-SEPA</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="91">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">MAV-JERES</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="92">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">ENTUR-ESS</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="93">
@@ -13698,9 +13802,14 @@ elementFormDefault="unqualified" version="1.3.4">
 					<xs:documentation xml:lang="en">Tourist</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="30">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">pram space including a seat</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="31">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Pram compartment</xs:documentation>
+					<xs:documentation xml:lang="en">pram space</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="32">
@@ -13711,6 +13820,11 @@ elementFormDefault="unqualified" version="1.3.4">
 			<xs:enumeration value="33">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Cabin8</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="34">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Places in a coach with self-service bistro</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="35">
@@ -13751,6 +13865,11 @@ elementFormDefault="unqualified" version="1.3.4">
 			<xs:enumeration value="62">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Front view place</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="63">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Excellence Class</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -13872,9 +13991,14 @@ elementFormDefault="unqualified" version="1.3.4">
 					<xs:documentation xml:lang="en">Tourist</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="30">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">pram space including a seat</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="31">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Pram compartment</xs:documentation>
+					<xs:documentation xml:lang="en">pram space</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="32">
@@ -13885,6 +14009,11 @@ elementFormDefault="unqualified" version="1.3.4">
 			<xs:enumeration value="33">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Cabin8</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="34">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Places in a coach with self-service bistro</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="35">
@@ -13925,6 +14054,11 @@ elementFormDefault="unqualified" version="1.3.4">
 			<xs:enumeration value="62">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Front view place</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="63">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Excellence Class</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>

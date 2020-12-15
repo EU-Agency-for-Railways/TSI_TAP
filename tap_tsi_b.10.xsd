@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://www.era.europa.eu/schemes/TAPTSI/1.2" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:doc="http://www.era.europa.eu/schemes/Documentation" xmlns:taf="http://www.era.europa.eu/schemes/TAFTSI/5.3" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.era.europa.eu/schemes/TAPTSI/1.2" elementFormDefault="unqualified" version="1.2">
+<!-- edited with XMLSpy v2017 sp2 (x64) (http://www.altova.com) by - (ERA - European Railway Agency) -->
+<xs:schema xmlns="http://www.era.europa.eu/schemes/TAPTSI/1.4" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:taf="http://www.era.europa.eu/schemes/TAFTSI/5.3" xmlns:doc="http://www.era.europa.eu/schemes/Documentation" xmlns:dc="http://purl.org/dc/elements/1.1/" targetNamespace="http://www.era.europa.eu/schemes/TAPTSI/1.4" elementFormDefault="unqualified" version="1.4">
 	<xs:annotation>
 		<xs:appinfo>
 			<dcterms:title>TAP TSI - ELECTRONIC RESERVATION OF ASSISTANCE FOR PERSONS WITH REDUCED MOBILITY - EXCHANGE OF MESSAGES.</dcterms:title>
@@ -188,397 +189,6 @@
 	<!--                   type defintions                             -->
 	<!--                   +++++++++++                            -->
 	<!--                   attribute                                    -->
-	<xs:attribute name="LocationSubsidiaryTypeCode">
-		<xs:annotation>
-			<xs:documentation>
-	New codes added:
-42	DIUM stations - Places of acceptance/delivery	Station open into international traffic of goods (tariff point included in DIUM) – consignment acceptance/delivery station (loading points are excluded and covered by TypeCode 37).
-43	Passengers cars public loading	Is a type of physical location on the open access network where passengers can put their car on a carrying train
-44	Passengers cars private loading	Is a type of physical location outside the open access network where passengers can put their car on a carrying train
-45	Sewage dump	Place for cleaning purposes - disposal of the waste
-46	Refuelling Point	Location where refuelling takes place
-47	Mains Supply	Location where energy supply can be provided for the rolling stock e.g. preheating
-48	Water Supply	Location where water supply can be provided for the rolling stock
-49	Compressed plant 	Train on a track with motion stabled with external air supply for braking systems
-50	Indoor cleaning platform	Cleaning point -interior
-51	Car-wash plant	Cleaning point -outdoor
-52	Short dry-cleaning track	Cleaning point
-53	Pollution protective plate	Track where floor that avoids pollution of the earth below
-54	Sand-filling station	Location where sand is filled
-55	Repair track	Location where a train/wagon/engine can be repaired
-56	Signal box	The location of a building containing signalling equipment
-	
-	</xs:documentation>
-		</xs:annotation>
-		<xs:simpleType>
-			<xs:restriction base="xs:token">
-				<xs:enumeration value="0">
-					<xs:annotation>
-						<xs:documentation>Not Defined</xs:documentation>
-						<xs:documentation>not used</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="1">
-					<xs:annotation>
-						<xs:documentation>Track</xs:documentation>
-						<xs:documentation>The track is a uniquely defined part of location</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="2">
-					<xs:annotation>
-						<xs:documentation>Private Siding</xs:documentation>
-						<xs:documentation>Tracks are not for open access</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="3">
-					<xs:annotation>
-						<xs:documentation>Border Point Code</xs:documentation>
-						<xs:documentation>Special code for the Border Points are allocated at the country border and the points between different IM networks. Location of these points sometimes are not geographically same with the station or yard. Therefore these points are "logical point"</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="4">
-					<xs:annotation>
-						<xs:documentation>Sorting Code</xs:documentation>
-						<xs:documentation>Destination station of the wagon has a code in order to provide shunting technology.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="5">
-					<xs:annotation>
-						<xs:documentation>Vehicle Parking Points</xs:documentation>
-						<xs:documentation>All points (tracks)</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="6">
-					<xs:annotation>
-						<xs:documentation>Public Loading Places</xs:documentation>
-						<xs:documentation>Is a type of physical location on the open access network where consignor or consignee can load or unload wagons</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="7">
-					<xs:annotation>
-						<xs:documentation>Private Loading Places</xs:documentation>
-						<xs:documentation>Is a type of physical location outside the open access network where consignor or consignee can load or unload wagons</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="8">
-					<xs:annotation>
-						<xs:documentation>IM Path Tariff Point</xs:documentation>
-						<xs:documentation>Price Segment change between two IM Networks.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="9">
-					<xs:annotation>
-						<xs:documentation>Depot / Maintenance workshop.
-	Place for overhaul or maintenance of the rolling stock.						
-						</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="10">
-					<xs:annotation>
-						<xs:documentation>Switch/turnout</xs:documentation>
-						<xs:documentation>The location where two tracks meet or diverge.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="11">
-					<xs:annotation>
-						<xs:documentation>Grade Crossing</xs:documentation>
-						<xs:documentation>The location where two tracks on the same level cross each other.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="12">
-					<xs:annotation>
-						<xs:documentation>Section of the track</xs:documentation>
-						<xs:documentation>Section is inside of the location considered part of a track.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="13">
-					<xs:annotation>
-						<xs:documentation>Twin track point</xs:documentation>
-						<xs:documentation>The spot where is end or start of the twinned track section.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="14">
-					<xs:annotation>
-						<xs:documentation>Retarder (rail brake)</xs:documentation>
-						<xs:documentation>Trackside equipment to control the speed of the wagons running from the shunting hump.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="15">
-					<xs:annotation>
-						<xs:documentation>Platform</xs:documentation>
-						<xs:documentation>The area next to the track which has been raised to make access to railway vehicles easier.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="16">
-					<xs:annotation>
-						<xs:documentation>Railing</xs:documentation>
-						<xs:documentation>barrier Safety equipment used to prevent access to the track by people and animals.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="17">
-					<xs:annotation>
-						<xs:documentation>Movable scotch block</xs:documentation>
-						<xs:documentation>Safety equipment across the track avoiding any unnecessary moving beyond that point.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="18">
-					<xs:annotation>
-						<xs:documentation>Derailing stop / Trap points / Catch points</xs:documentation>
-						<xs:documentation>Safety equipment is on one rail avoiding any unnecessary moving beyond that point.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="19">
-					<xs:annotation>
-						<xs:documentation>Loading equipment</xs:documentation>
-						<xs:documentation>Special equipment to facilitate the loading and unloading on the Public Loading Places.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="20">
-					<xs:annotation>
-						<xs:documentation>Weighbridge</xs:documentation>
-						<xs:documentation>Special equipment is to facilitate the measure of the weight of the wagon.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="21">
-					<xs:annotation>
-						<xs:documentation>Building</xs:documentation>
-						<xs:documentation>Those buildings where IM placed his staff for direct communication with RU staff or the IM buildings serve RU activities as well.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="22">
-					<xs:annotation>
-						<xs:documentation>Level crossing</xs:documentation>
-						<xs:documentation>Place where rail and road crossing in level. on the same level (grade)</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="23">
-					<xs:annotation>
-						<xs:documentation>Bridge</xs:documentation>
-						<xs:documentation>Special built structure is over the road</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="24">
-					<xs:annotation>
-						<xs:documentation>Tunnel</xs:documentation>
-						<xs:documentation>Structure to to allow a railway line to pass under the surface.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="25">
-					<xs:annotation>
-						<xs:documentation>Underpass</xs:documentation>
-						<xs:documentation>Undercrossing or underground passage under the railway track. (Not used by trains)</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="26">
-					<xs:annotation>
-						<xs:documentation>Block section</xs:documentation>
-						<xs:documentation>Block section outside of the location with primary code. In other words: a section on the open track between stations defined by signalling system.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="27">
-					<xs:annotation>
-						<xs:documentation>Signal</xs:documentation>
-						<xs:documentation>A signal is a mechanical or electrical device erected beside a railway line to pass information relating to the state of the line ahead to train drivers/engineers.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="28">
-					<xs:annotation>
-						<xs:documentation>Sign and board</xs:documentation>
-						<xs:documentation>Equipment to inform the board staff for train traffic and shunting.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="29">
-					<xs:annotation>
-						<xs:documentation>Phase break</xs:documentation>
-						<xs:documentation>Border of the power supply systems (catenary).</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="30">
-					<xs:annotation>
-						<xs:documentation>Leap in kilometer</xs:documentation>
-						<xs:documentation>The section has deviation in length i. e. the section more or less than called.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="32">
-					<xs:annotation>
-						<xs:documentation>Balise</xs:documentation>
-						<xs:documentation>A balise is an electronic beacon or transponder placed between the rails of a railway as part of an Automatic Train Protection (ATP) system.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="33">
-					<xs:annotation>
-						<xs:documentation>Hot spot detector</xs:documentation>
-						<xs:documentation>Trackside equipment which detects hot wheels or axle-box on passing trains.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="34">
-					<xs:annotation>
-						<xs:documentation>Flat wheel detector</xs:documentation>
-						<xs:documentation>Trackside equipment which detects flat spots on wheels on passing trains.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="35">
-					<xs:annotation>
-						<xs:documentation>Dynamic wheel load</xs:documentation>
-						<xs:documentation>detector Special equipment is in trackside for inspect of the overloaded wagons.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="36">
-					<xs:annotation>
-						<xs:documentation>Freight yard</xs:documentation>
-						<xs:documentation>A freight yard is commercial usage of a physical location which can be used as a sending or a destination station in freight orders of rail freight transports. The freight yard can have his own codification</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="37">
-					<xs:annotation>
-						<xs:documentation>Loading point</xs:documentation>
-						<xs:documentation>A loading point is a commercial usage of a physical location. Each loading point is assigned to a yard.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="38">
-					<xs:annotation>
-						<xs:documentation>IM Network link</xs:documentation>
-						<xs:documentation>It allows to link two locations from different IM Networks</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="39">
-					<xs:annotation>
-						<xs:documentation>Reservation code</xs:documentation>
-						<xs:documentation/>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="40">
-					<xs:annotation>
-						<xs:documentation>Metastation</xs:documentation>
-						<xs:documentation>To mark a meta location that forms the link between different stations that are considered as equal (for the traveller)</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="41">
-					<xs:annotation>
-						<xs:documentation>CompanySpecificIdentifier</xs:documentation>
-						<xs:documentation>Company specific identifier of the primary location</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="42">
-					<xs:annotation>
-						<xs:documentation>
-				DIUM stations - Places of acceptance/delivery	Station open into international traffic of goods (tariff point included in DIUM) – consignment acceptance/delivery station (loading points are excluded and covered by TypeCode 37).
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="43">
-					<xs:annotation>
-						<xs:documentation>
-				Passengers cars public loading	Is a type of physical location on the open access network where passengers can put their car on a carrying train
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="44">
-					<xs:annotation>
-						<xs:documentation>
-				Passengers cars private loading	Is a type of physical location outside the open access network where passengers can put their car on a carrying train
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="45">
-					<xs:annotation>
-						<xs:documentation>
-				Sewage dump	Place for cleaning purposes - disposal of the waste
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="46">
-					<xs:annotation>
-						<xs:documentation>
-				Refuelling Point	Location where refuelling takes place
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="47">
-					<xs:annotation>
-						<xs:documentation>
-				Mains Supply	Location where energy supply can be provided for the rolling stock e.g. preheating
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="48">
-					<xs:annotation>
-						<xs:documentation>
-				Water Supply	Location where water supply can be provided for the rolling stock
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="49">
-					<xs:annotation>
-						<xs:documentation>
-				Compressed plant 	Train on a track with motion stabled with external air supply for braking systems
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="50">
-					<xs:annotation>
-						<xs:documentation>
-				Indoor cleaning platform	Cleaning point -interior
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="51">
-					<xs:annotation>
-						<xs:documentation>
-				Car-wash plant	Cleaning point -outdoor
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="52">
-					<xs:annotation>
-						<xs:documentation>
-				Short dry-cleaning track	Cleaning point
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="53">
-					<xs:annotation>
-						<xs:documentation>
-				Pollution protective plate	Track where floor that avoids pollution of the earth below
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="54">
-					<xs:annotation>
-						<xs:documentation>
-				Sand-filling station	Location where sand is filled
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="55">
-					<xs:annotation>
-						<xs:documentation>
-				Repair track	Location where a train/wagon/engine can be repaired
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="56">
-					<xs:annotation>
-						<xs:documentation>
-				Signal box	The location of a building containing signalling equipment
-				</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="90">
-					<xs:annotation>
-						<xs:documentation>Test Loc</xs:documentation>
-						<xs:documentation/>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="99">
-					<xs:annotation>
-						<xs:documentation>Relation to Station</xs:documentation>
-						<xs:documentation>An indicator used to show that this location is a subsidiary of another location.</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:attribute>
 	<!--                   simple types                             -->
 	<xs:simpleType name="AssistanceBookingSystemType">
 		<xs:annotation>
@@ -620,11 +230,10 @@
 	</xs:simpleType>
 	<xs:simpleType name="CompanyCodeType">
 		<xs:annotation>
-			<xs:documentation xml:lang="en"> Identifies the RU, IM or other company involved in the Rail Transport Chain  (i.e. 1088 for passenger SNCB). The code list is published by UIC.</xs:documentation>
+			<xs:documentation xml:lang="en">Identifies the RU, IM or other company involved in the Rail Transport Chain  (i.e. 1088 for passenger SNCB). The code list is published by UIC.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:integer">
-			<xs:maxInclusive value="9999"/>
-			<xs:minInclusive value="0001"/>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9A-Z]{4}"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ContextType">
@@ -1249,7 +858,23 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="LocationSubsidiaryType">
-		<xs:attribute ref="LocationSubsidiaryTypeCode"/>
+		<xs:attribute name="LocationSubsidiaryTypeCode">
+			<xs:simpleType>
+				<xs:restriction base="xs:integer">
+					<xs:enumeration value="00"/>
+					<xs:enumeration value="01"/>
+					<xs:enumeration value="02"/>
+					<xs:enumeration value="03"/>
+					<xs:enumeration value="04"/>
+					<xs:enumeration value="05"/>
+					<xs:enumeration value="06"/>
+					<xs:enumeration value="07"/>
+					<xs:enumeration value="08"/>
+					<xs:enumeration value="09"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<!--		<xs:attribute ref="taf:LocationSubsidiaryTypeCode"/>-->
 	</xs:complexType>
 	<xs:complexType name="PrmCustomerType">
 		<xs:complexContent>

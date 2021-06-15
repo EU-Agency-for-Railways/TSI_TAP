@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 (x64) (http://www.altova.com) by - - (European Railway Agency (ERA)) -->
-<xs:schema xmlns="http://www.era.europa.eu/schemes/TAPTSI/1.4" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:doc="http://www.era.europa.eu/schemes/Documentation" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" targetNamespace="http://www.era.europa.eu/schemes/TAPTSI/1.4" elementFormDefault="unqualified" version="1.4.0">
+<xs:schema xmlns="http://www.era.europa.eu/schemes/TAPTSI/1.4" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:doc="http://www.era.europa.eu/schemes/Documentation" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" targetNamespace="http://www.era.europa.eu/schemes/TAPTSI/1.4" elementFormDefault="unqualified" version="1.4.1">
 	<!-- includes for the schema -->
 	<xs:include schemaLocation="TAP_TSI_Documentation.xsd"/>
 	<!--This schema covers the code lists for the TAP TSI-->
@@ -131,6 +131,14 @@
 					<xs:documentation xml:lang="en" doc:docType="Description">Reference to the identifier used for reservation at this location</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark"/>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X02">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Location’s reservation identifier</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Reference between two service brands</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark"/>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -581,7 +589,7 @@
 			<xs:documentation xml:lang="en">Code list for the railway undertaking code (B.4.3039)</xs:documentation>
 			<xs:appinfo>
 				<dc:title>railway undertaking code</dc:title>
-				<dc:source>B.4.3039</dc:source>
+				<dc:source>B.4.0004,B.4.0010,B.4.3039</dc:source>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
@@ -662,14 +670,6 @@
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Östgötatrafiken</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Östgöta public transport</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Remark">Sweden. Local trains and buses</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="X025">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Jönköpings Lanstrafiken</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Description">Jönköping's public transport</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Sweden. Local trains and buses</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
@@ -802,14 +802,6 @@
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="X044">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">SL</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Description">Stockholm Transport</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Remark">Sweden. Local trains, metro, bus</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="X045">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Skanetrafiken</xs:documentation>
@@ -898,14 +890,6 @@
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="X061">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Öresundtagen</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Description">Öresund trains</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Remark">Sweden</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="X062">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">WTB Wutachtalbahn (Museum)</xs:documentation>
@@ -919,22 +903,6 @@
 					<xs:documentation xml:lang="en">WestfalenBahn GmbH</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">WestfalenBahn GmbH</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Germany. DB AG code value =W3</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="X066">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">WTB Wutachtalbahn (Museum)</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Description">WTB Wutachtalbahn (Museum)</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Remark">Germany. DB AG code value =W6</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="3030">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">SJ/GVG</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Description">Georg Verkehrsgesellschaft GmbH</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Remark">Sweden. Nighttrains Sweden-Germany</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -1350,14 +1318,6 @@
 				<xs:annotation>
 					<xs:documentation xml:lang="en">RHB</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Rorschach-Heiden-Bahn</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="X120">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">RhB</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Description">Rhätische Bahn</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
@@ -2588,8 +2548,8 @@
 			</xs:enumeration>
 			<xs:enumeration value="X341">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">West Coast Railway Co</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Description">Train services for the West coast  of Britain (UK code WR)</xs:documentation>
+					<xs:documentation xml:lang="en">Tourist Train operator</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Tourist Train operator</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Great Britain, ATOC</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
@@ -2599,22 +2559,6 @@
 					<xs:documentation xml:lang="en">North Yorkshire Moors Railway</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">North Yorkshire Moors Railway (NY)</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Great Britain, ATOC</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="X343">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Veolia Transport Morava a.s.</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Description">Veolia Transport Morava a.s.</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Remark">CD / Czech Republic</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="X344">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">VIAMONT Regio a.s.</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Description">VIAMONT Regio a.s.</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Remark">CD / Czech Republic</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -2628,18 +2572,202 @@
 			</xs:enumeration>
 			<xs:enumeration value="X346">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Thameslink</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Description">Thameslink</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Remark">Great Britain, ATOC</xs:documentation>
+					<xs:documentation xml:lang="en">Dopravní podnik</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Dopravní podnik hl.m. Prahy, a.s.</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">CD / Czech Republic</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X347">
 				<xs:annotation>
+					<xs:documentation xml:lang="en">KŽC Doprava</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">KŽC Doprava, s.r.o.</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">CD / Czech Republic</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X349">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Veolia Transport Morava</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Veolia Transport Morava a.s.</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">CD / Czech Republic</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X350">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Thameslink</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Thameslink</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Great Britain, ATOC</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X351">
+				<xs:annotation>
 					<xs:documentation xml:lang="en">Great Northern</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Great Northern</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Great Britain, ATOC</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X352">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Koleje Malopolskie</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Koleje Malopolskie</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Poland </xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X354">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">KOLŚLĄSK</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Koleje Śląskie Spółka z o.o.</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Poland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X355">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">ŁKA</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Łódzka Kolej Aglomeracyjna Sp. z o.o.</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Poland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X356">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">AFA</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Autoverkehr Frutigen-Adelboden</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X357">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">BOS</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Bus Ostschweiz</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X358">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">FART Auto</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Servizio d'automobili FART</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X359">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">PAG</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">PostAuto Schweiz</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X360">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">BVB</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Basler Verkehrsbetriebe</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X361">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">ABAG</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Aletsch Bahnen</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X362">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">TPF</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Service d'automibiles TPF</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X363">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">LLB</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Auto Leuk-Leukerbad</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X364">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">SMC</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Transport Sierre-Montana-Crans</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X365">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">SGV</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Schifffahrtsgesellschaft des Vierwaldstättersees</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X366">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">TPC Auto</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Service d'automobiles TPC</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X367">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">TMR Auto</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Service d'automobiles TMR</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X368">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">CGN</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">CGN Lac Leman</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X369">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">TL</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Transport publics de la Region Lausannoise</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X370">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">LSMS</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Schilthornbahn</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X371">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">VBL</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Verkehrsbetriebe Luzern</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X372">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">TRAVYS AUTO</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Transports Vallée de Joux-Yverdon-Ste-Croix</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -2673,6 +2801,17 @@
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="type3225CodeList">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Location name code (B.4.3225)</xs:documentation>
+			<xs:appinfo>
+				<dc:title>Location name code</dc:title>
+				<dc:source>B.4.3225</dc:source>
+			</xs:appinfo>
+			<xs:documentation xml:lang="en">TAP TSI Technical Document B.9</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:simpleType name="type3227CodeList">
 		<xs:annotation>
@@ -4040,21 +4179,21 @@
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="86">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">CNL</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">City Night Line </xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="merits description">City Night Line</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="servicemode code">13</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="87">
 				<xs:annotation>
 					<xs:documentation xml:lang="en"> </xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">PENDOLINO  </xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="merits description">Pendolino</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="servicemode code">8</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="88">
+				<xs:annotation>
+					<xs:documentation xml:lang="en"/>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation"/>
+					<xs:documentation xml:lang="en" doc:docType="merits description">Suburban</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -4276,11 +4415,11 @@
 			</xs:enumeration>
 			<xs:enumeration value="117">
 				<xs:annotation>
-					<xs:documentation xml:lang="en"> ALC</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="ticket text reservation"> Arco</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="merits description">Arco</xs:documentation>
+					<xs:documentation xml:lang="en">ARC</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">Arco</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">intercity</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="servicemode code">9</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">2</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="119">
@@ -4292,12 +4431,12 @@
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="120">
+			<xs:enumeration value="121">
 				<xs:annotation>
-					<xs:documentation xml:lang="en"> </xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="ticket text reservation"> </xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="merits description">ICN</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="servicemode code">9</xs:documentation>
+					<xs:documentation xml:lang="en"/>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">Night Train</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">Night Train</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -4312,10 +4451,19 @@
 			</xs:enumeration>
 			<xs:enumeration value="123">
 				<xs:annotation>
-					<xs:documentation xml:lang="en"> </xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="ticket text reservation"> </xs:documentation>
+					<xs:documentation xml:lang="en">IRN</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">Interregional Night Train</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="merits description">Interregional Night Train</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="servicemode code">13</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">2</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="124">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">NLT</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">TOLSTOI</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">Tolstoi</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -4448,10 +4596,10 @@
 			<xs:enumeration value="166">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">TGV</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">TGV Duplex France Allemagne</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">TGV INOUI</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="merits description">TGV Duplex France Allemagne</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="servicemode code">8</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">2</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="170">
@@ -4535,6 +4683,24 @@
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="179">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">BXB</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">Bernina Express Bus</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">Bernina Express (Panorama Bus)</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="200">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">GGB</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">Gornergrat Bahn</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">Mountain train</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="202">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">ICE</xs:documentation>
@@ -4550,6 +4716,15 @@
 					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">ÖBB-NIGHTLINE</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="merits description">ÖBB Night Line</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="servicemode code">13</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="205">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">ICP</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">Intercity Plus </xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">Intercity Plus</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -4622,15 +4797,6 @@
 					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">TGV</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="merits description">TGV</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="servicemode code">8</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="222">
-				<xs:annotation>
-					<xs:documentation xml:lang="en"/>
-					<xs:documentation xml:lang="en" doc:docType="ticket text reservation"/>
-					<xs:documentation xml:lang="en" doc:docType="merits description">City Night Line Transferbus</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="servicemode code">32</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -4796,22 +4962,13 @@
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="241">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">IB</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">InterCity Bornholm</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="merits description">InterCity Bornholm</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="servicemode code">9</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="242">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">STR</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">STRIZH</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="merits description">Strizh night train</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="servicemode code">13</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="243">
@@ -4819,8 +4976,8 @@
 					<xs:documentation xml:lang="en">STR</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">STRIZH</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="merits description">Strizh interregional</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="servicemode code">8</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="244">
@@ -4828,8 +4985,8 @@
 					<xs:documentation xml:lang="en">NJ</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">NJ</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="merits description">NJ Night Jet</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="servicemode code">13</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="245">
@@ -4837,8 +4994,134 @@
 					<xs:documentation xml:lang="en">CAR</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">AUTOCAR</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="merits description">French regional buses (not sold via Hermes)</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="servicemode code">32</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="246">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">RJX</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">RJX</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">RJX railjet xpress</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="247">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">CJX</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">CJX</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">CJX cityjet xpress</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="248">
+				<xs:annotation>
+					<xs:documentation xml:lang="en"/>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">Night train BC </xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">Night train BC </xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="249">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">TGV</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">TGV INOUI</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">TGV INOUI</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="250">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">TGV</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">TGV INOUI</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">TGV INOUI DUPLEX (double decker TGV)</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="251">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">ALI</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">Aare Linth </xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">Aare Linth (Panorama Train)</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="252">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">TGO</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">Treno Gottardo </xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">Treno Gottardo (Panorama Train)</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="253">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">VAE</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">Voralpen-Express </xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">Voralpen-Express (Panorama Train)</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="254">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">LK</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">FRECCIALINK</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">FRECCIALINK</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="255">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">FRN</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">FRECCIAROSSA NOTTE</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">FRECCIAROSSA NOTTE</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="256">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">ABS</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">ANEK – SUPERFAST JOINT VENTURE </xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">Domestic routes Crete</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="257">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">ASF</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">ANEK – SUPERFAST JOINT VENTURE </xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">International Lines Italy-Greece and V.V.</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="258">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">BSF</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">BLUE STAR FERRIES MARITIME SA  CO JOINT  VENTURE</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">Domestic routes Greece  </xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="259">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">HSW</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="ticket text reservation">BLUE STAR FERRIES MARITIME SA  CO JOINT  VENTURE</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="merits description">Domestic routes Greece  </xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="servicemode code">";E1;"</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -5077,6 +5360,14 @@
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="3"/>
+			<xs:enumeration value="00">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Alternative service</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">The journey planner algorithm should look for an alternative Service</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark"/>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="3">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Additional loading</xs:documentation>
@@ -5337,6 +5628,30 @@
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Check-out</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Time at which the traveller checks out</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark"/>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="46">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Free WiFi on board</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Free WiFi service on board available</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark"/>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="47">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">WiFi on board</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">WiFi service on board available</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark"/>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="48">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Warning! Service may be affected by strike action</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Warning! Service may be affected by strike action</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark"/>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
@@ -5781,6 +6096,22 @@
 					<xs:documentation xml:lang="en" doc:docType="Description">For services with no class differentiation. A service with only one class</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">UIC</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="71">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Medical-grade masks</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Medical-grade masks must be worn</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark"/>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="72">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Mask obligation according to legal regulation</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Mask obligation according to legal regulation</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark"/>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="101">
@@ -9201,7 +9532,7 @@
 			<xs:documentation xml:lang="en">Code list for the UIC countries (B.8)</xs:documentation>
 			<xs:appinfo>
 				<dc:title>Code list for the UIC countries</dc:title>
-				<dc:source>B.8</dc:source>
+				<dc:source>B.8, B.9.1</dc:source>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
@@ -10105,6 +10436,11 @@
 					<xs:documentation xml:lang="en">T2</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="P4">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">private compartment 4 couchette</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="PD">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Private compartment berth deluxe</xs:documentation>
@@ -10173,6 +10509,32 @@
 			<xs:enumeration value="Z">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Tourist</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FareTableTypeCodeList">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Code list for Fare table (B.3.13)</xs:documentation>
+			<xs:appinfo>
+				<dc:title>Type of fare table</dc:title>
+				<dc:source>B.3.13</dc:source>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">distance-based</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">route based</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">set fare</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -12868,6 +13230,11 @@
 					<xs:documentation xml:lang="en">KVC</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="57">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">SV</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="59">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">EXPRESS 3-KRG</xs:documentation>
@@ -13458,6 +13825,11 @@
 					<xs:documentation xml:lang="en">Free</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="09">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">complete (private) compartment (thus it can be combined wit the existing code for 4 place couchette on positions 3/4)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="11">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Railtour (at present SBB - FS offer)</xs:documentation>
@@ -13527,6 +13899,11 @@
 			<xs:enumeration value="01 to 10">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Free</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="09">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">complete (private) compartment (thus it can be combined wit the existing code for 4 place couchette on positions 3/4)</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="11">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 (x64) (http://www.altova.com) by - - (European Railway Agency (ERA)) -->
-<xs:schema xmlns="http://www.era.europa.eu/schemes/TAPTSI/1.4" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:doc="http://www.era.europa.eu/schemes/Documentation" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" targetNamespace="http://www.era.europa.eu/schemes/TAPTSI/1.4" elementFormDefault="unqualified" version="1.4.1">
+<xs:schema xmlns="http://www.era.europa.eu/schemes/TAPTSI/1.4" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:doc="http://www.era.europa.eu/schemes/Documentation" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" targetNamespace="http://www.era.europa.eu/schemes/TAPTSI/1.4" elementFormDefault="unqualified" version="1.4.2">
 	<!-- includes for the schema -->
 	<xs:include schemaLocation="TAP_TSI_Documentation.xsd"/>
 	<!--This schema covers the code lists for the TAP TSI-->
@@ -14,6 +14,7 @@
 			<dcterms:changed>2012-03-08</dcterms:changed>
 			<dcterms:changed>2013-07-03</dcterms:changed>
 			<dcterms:changed>2017-05-22</dcterms:changed>
+			<dcterms:changed>2022-06-15</dcterms:changed>
 			<dcterms:references>ERA/TD/2009-14/INT</dcterms:references>
 			<dcterms:type>text/xml</dcterms:type>
 			<dcterms:subject>Transport, Public Transport, Rail</dcterms:subject>
@@ -22,7 +23,7 @@
 			<dcterms:publisher>ERA European Railway Agency, 120 rue Marc Lefrancq, 59307 Valenciennes Cedex, http://www.era.europa.eu/</dcterms:publisher>
 			<dcterms:rights>Unclassified</dcterms:rights>
 			<dcterms:rightsHolder>European Railway Agency</dcterms:rightsHolder>
-			<dcterms:copyright>ERA 2013</dcterms:copyright>
+			<dcterms:copyright>ERA 2022</dcterms:copyright>
 			<dcterms:source>Derived from UIC leaflets</dcterms:source>
 		</xs:appinfo>
 	</xs:annotation>
@@ -138,7 +139,7 @@
 					<xs:documentation xml:lang="en">Location’s reservation identifier</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Reference between two service brands</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark"/>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -2591,7 +2592,7 @@
 					<xs:documentation xml:lang="en">Veolia Transport Morava</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Veolia Transport Morava a.s.</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">CD / Czech Republic</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X350">
@@ -2599,7 +2600,7 @@
 					<xs:documentation xml:lang="en">Thameslink</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Thameslink</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Great Britain, ATOC</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X351">
@@ -2607,7 +2608,7 @@
 					<xs:documentation xml:lang="en">Great Northern</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Great Northern</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Great Britain, ATOC</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X352">
@@ -2615,7 +2616,7 @@
 					<xs:documentation xml:lang="en">Koleje Malopolskie</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Koleje Malopolskie</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Poland </xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X354">
@@ -2623,7 +2624,7 @@
 					<xs:documentation xml:lang="en">KOLŚLĄSK</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Koleje Śląskie Spółka z o.o.</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Poland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X355">
@@ -2631,7 +2632,7 @@
 					<xs:documentation xml:lang="en">ŁKA</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Łódzka Kolej Aglomeracyjna Sp. z o.o.</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Poland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X356">
@@ -2639,7 +2640,7 @@
 					<xs:documentation xml:lang="en">AFA</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Autoverkehr Frutigen-Adelboden</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X357">
@@ -2647,7 +2648,7 @@
 					<xs:documentation xml:lang="en">BOS</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Bus Ostschweiz</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X358">
@@ -2655,7 +2656,7 @@
 					<xs:documentation xml:lang="en">FART Auto</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Servizio d'automobili FART</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X359">
@@ -2663,7 +2664,7 @@
 					<xs:documentation xml:lang="en">PAG</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">PostAuto Schweiz</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X360">
@@ -2671,7 +2672,7 @@
 					<xs:documentation xml:lang="en">BVB</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Basler Verkehrsbetriebe</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X361">
@@ -2679,7 +2680,7 @@
 					<xs:documentation xml:lang="en">ABAG</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Aletsch Bahnen</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X362">
@@ -2687,7 +2688,7 @@
 					<xs:documentation xml:lang="en">TPF</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Service d'automibiles TPF</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X363">
@@ -2695,7 +2696,7 @@
 					<xs:documentation xml:lang="en">LLB</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Auto Leuk-Leukerbad</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X364">
@@ -2703,7 +2704,7 @@
 					<xs:documentation xml:lang="en">SMC</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Transport Sierre-Montana-Crans</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X365">
@@ -2711,7 +2712,7 @@
 					<xs:documentation xml:lang="en">SGV</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Schifffahrtsgesellschaft des Vierwaldstättersees</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X366">
@@ -2719,7 +2720,7 @@
 					<xs:documentation xml:lang="en">TPC Auto</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Service d'automobiles TPC</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X367">
@@ -2727,7 +2728,7 @@
 					<xs:documentation xml:lang="en">TMR Auto</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Service d'automobiles TMR</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X368">
@@ -2735,7 +2736,7 @@
 					<xs:documentation xml:lang="en">CGN</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">CGN Lac Leman</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X369">
@@ -2743,7 +2744,7 @@
 					<xs:documentation xml:lang="en">TL</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Transport publics de la Region Lausannoise</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X370">
@@ -2751,7 +2752,7 @@
 					<xs:documentation xml:lang="en">LSMS</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Schilthornbahn</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X371">
@@ -2759,7 +2760,7 @@
 					<xs:documentation xml:lang="en">VBL</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Verkehrsbetriebe Luzern</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="X372">
@@ -2767,7 +2768,7 @@
 					<xs:documentation xml:lang="en">TRAVYS AUTO</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Transports Vallée de Joux-Yverdon-Ste-Croix</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">Switzerland</xs:documentation>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -5365,7 +5366,7 @@
 					<xs:documentation xml:lang="en">Alternative service</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">The journey planner algorithm should look for an alternative Service</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark"/>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="3">
@@ -6103,7 +6104,7 @@
 					<xs:documentation xml:lang="en">Medical-grade masks</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Medical-grade masks must be worn</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark"/>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="72">
@@ -6111,7 +6112,7 @@
 					<xs:documentation xml:lang="en">Mask obligation according to legal regulation</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Description">Mask obligation according to legal regulation</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark"/>
-					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="101">
@@ -6152,6 +6153,22 @@
 					<xs:documentation xml:lang="en" doc:docType="Description">2nd Class couchette five beds C5</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Remark">DB Nachtzug</xs:documentation>
 					<xs:documentation xml:lang="en" doc:docType="Status">0</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="106">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Vaccinated, tested, recovered rule applied</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description">Vaccinated, tested, recovered rule applied</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Vaccinated, tested, recovered rule applies on trains, valid proof must be presented</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="107">
+				<xs:annotation>
+					<xs:documentation xml:lang="en"> Dedicated toilet and place for wheelchair</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Description"> Dedicated toilet and place for wheelchair</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Remark">Dedicated toilet together with dedicated space for wheelchair</xs:documentation>
+					<xs:documentation xml:lang="en" doc:docType="Status">1</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -9188,6 +9205,11 @@
 					<xs:documentation xml:lang="en">Seat in compartment without animals</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="16">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Business Comfort – business seat with reduced service</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="20">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Couchette coach without equipment</xs:documentation>
@@ -9360,6 +9382,11 @@
 			<xs:enumeration value="15">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Compartment without animals</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="16">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Business Comfort – business seat with reduced service</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="20">
@@ -10196,6 +10223,11 @@
 					<xs:documentation xml:lang="en">Seat 1st Class</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="AC">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Business Comfort – business seat with reduced service</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="AH">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Classic (place in a historic coach) (1st class)</xs:documentation>
@@ -10379,6 +10411,11 @@
 			<xs:enumeration value="M">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Special</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MS">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Mini Suite - single person couchette compartment</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="N">
@@ -13946,7 +13983,12 @@
 					<xs:documentation xml:lang="en">Female compartment in couchette coach</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="31 to 49">
+			<xs:enumeration value="31">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">side by side (e.g. connected neighbouring Mini Suites on the same level)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="32 to 49">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Free</xs:documentation>
 				</xs:annotation>
@@ -14214,6 +14256,11 @@
 					<xs:documentation xml:lang="en">Cabin-couchette coach</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="40">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">“Mini Suite“ - single person couchette compartment</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="52">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Silence</xs:documentation>
@@ -14401,6 +14448,11 @@
 			<xs:enumeration value="39">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Cabin-couchette coach</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="40">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Mini Suite</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="52">

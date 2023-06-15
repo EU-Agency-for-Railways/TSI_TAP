@@ -13452,7 +13452,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="95">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">SIVER-ELIPSOS</xs:documentation>
+					<xs:documentation xml:lang="en">CFL</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>

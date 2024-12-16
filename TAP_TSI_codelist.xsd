@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2020 rel. 2 sp1 (x64) (http://www.altova.com) by   (ERA - European Railway Agency) -->
-<xs:schema xmlns="http://www.era.europa.eu/schemes/TAPTSI/1.4" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:doc="http://www.era.europa.eu/schemes/Documentation" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" targetNamespace="http://www.era.europa.eu/schemes/TAPTSI/1.4" elementFormDefault="unqualified" version="1.4.2">
+<xs:schema xmlns="http://www.era.europa.eu/schemes/TAPTSI/1.4" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:doc="http://www.era.europa.eu/schemes/Documentation" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" targetNamespace="http://www.era.europa.eu/schemes/TAPTSI/1.4" elementFormDefault="unqualified" version="1.4.6">
 	<!-- includes for the schema -->
 	<xs:include schemaLocation="TAP_TSI_Documentation.xsd"/>
 	<!--This schema covers the code lists for the TAP TSI-->
@@ -13571,6 +13571,7 @@
 	<xs:simpleType name="ServiceTypeCodeList">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">Code list for service (B.5.15)</xs:documentation>
+			<xs:documentation xml:lang="en">codes 07-29, 32 to 39, 41 to 49, 55 - 60, 68 to 79 free, 80 to 99 Reserved for national requirements</xs:documentation>
 			<xs:appinfo>
 				<dc:title>Code list for Service</dc:title>
 				<dc:source>B.5.15</dc:source>
@@ -13613,11 +13614,6 @@
 					<xs:documentation xml:lang="en">car-carrying train</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="07 to 29">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Free</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="30">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">car on ferry</xs:documentation>
@@ -13628,19 +13624,9 @@
 					<xs:documentation xml:lang="en">Passenger on ferry</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="32 to 39">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Free</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="40">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Hire car</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="41 to 49">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Free</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="50">
@@ -13666,11 +13652,6 @@
 			<xs:enumeration value="54">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">information on available offer</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="55 - 60">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Free</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="61">
@@ -13706,16 +13687,6 @@
 			<xs:enumeration value="67">
 				<xs:annotation>
 					<xs:documentation xml:lang="en">Application text "provisional listing of berths</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="68 to 79">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Free</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="80 to 99">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">Reserved for national requirements</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
